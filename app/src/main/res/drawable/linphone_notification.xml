@@ -1,0 +1,19 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- AgentPro: was linphone's own logo, shown as the brand icon at the top of the side
+         drawer (drawer_menu.xml) right next to the app name - the one place their mark was
+         still on screen. Replaced with the same telephone receiver used by the splash screen
+         and the welcome logo, so all three brand marks match.
+
+         The file name is left alone on purpose: renaming it means touching every reference
+         and gains nothing, since a resource name is never shown to the user. -->
+    <path
+        android:name="path"
+        android:fillColor="#FFFFFF"
+        android:pathData="M40.02,30.76c-2.46,0 -4.84,-0.4 -7.06,-1.14c-0.7,-0.24 -1.48,-0.06 -2.02,0.48l-4.4,4.4c-5.66,-2.88 -10.3,-7.5 -13.18,-13.16l4.4,-4.42c0.56,-0.54 0.72,-1.32 0.5,-2.02c-0.76,-2.22 -1.14,-4.6 -1.14,-7.06c0,-1.46 -1.18,-2.66 -2.64,-2.66H6.04c-1.46,0 -2.64,1.2 -2.64,2.66c0,19.42 15.8,35.24 35.24,35.24c1.46,0 2.64,-1.18 2.64,-2.64v-8.48c0,-1.46 -1.18,-2.64 -2.64,-2.64z"/>
+</vector>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AgentPro in-app User Guide. Self-contained manual (no external links). Section headers use the
+  ProAgent blue accent; body text is light grey on the dark app background. Styling is inline to
+  match the other custom AgentPro screens (settings_menu_fragment, pbx_server_fragment).
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12151B"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="18dp"
+        android:paddingBottom="32dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="12dp"
+            android:layout_marginBottom="6dp">
+
+            <ImageView
+                android:id="@+id/guide_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/ap_back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginEnd="40dp"
+                android:text="@string/ap_user_guide"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ap_agentpro_is_your_call_center_softphone_t"
+            android:textColor="#AEB6C2"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="6dp" />
+
+        <!-- ============ Account & Connection ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_account_connection" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_your_sip_extension_appears_at_the_top_of" />
+
+        <!-- ============ Multiple accounts ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_multiple_accounts" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_agentpro_can_hold_several_sip_accounts_a" />
+
+        <!-- ============ Dialpad ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_dialpad_home_tab" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_type_a_number_and_tap_the_green_button_t" />
+
+        <!-- ============ DND / Auto Answer / Auto Disp ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_dnd_auto_answer_auto_disp" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_these_toggles_sit_in_the_bar_under_the_k" />
+
+        <!-- ============ During a call ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_during_a_call" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_the_call_screen_shows_the_live_audio_cod" />
+
+        <!-- ============ Disp ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_disp_call_dispositions" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_records_the_outcome_of_each_call_interes" />
+
+        <!-- ============ Campaign ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_campaign_auto_dialer" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_import_a_contact_list_from_an_excel_xlsx" />
+
+        <!-- ============ Contacts ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_contacts" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_a_simple_contact_manager_import_or_expor" />
+
+        <!-- ============ Panel ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_panel_live_extension_panel" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_shows_your_colleagues_extensions_and_whe" />
+
+        <!-- ============ History ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_history_recent_calls" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_your_recent_calls_incoming_outgoing_and" />
+
+        <!-- ============ CDR ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_cdr_call_records" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_browse_the_pbx_call_history_for_the_whol" />
+
+        <!-- ============ Agent ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_agent_queue_control" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_log_in_or_out_of_the_call_center_queues" />
+
+        <!-- ============ Wallboard ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_wallboard_live_dashboard" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_a_real_time_call_center_dashboard_every" />
+
+        <!-- ============ Minutes ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_minutes_outbound_usage" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_measures_how_many_outbound_minutes_each" />
+
+        <!-- ============ Settings ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_settings_2" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_accounts_add_switch_between_or_remove_yo" />
+
+        <!-- ============ Backup & security ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_backup_security" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_your_pbx_passwords_are_encrypted_on_the" />
+
+        <!-- ============ Tips ============ -->
+        <TextView style="@style/user_guide_header" android:text="@string/ap_troubleshooting_tips" />
+        <TextView style="@style/user_guide_body"
+            android:text="@string/ap_a_green_connected_badge_means_you_are_re" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#232A33"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/ap_agentpro_by_developer"
+            android:textColor="#6B7480"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</ScrollView>

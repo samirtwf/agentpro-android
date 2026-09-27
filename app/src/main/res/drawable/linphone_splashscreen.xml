@@ -1,0 +1,16 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+  <group
+      android:translateX="6"
+      android:translateY="6">
+      <!-- 48x48 centered telephone receiver in ProAgent Blue -->
+      <path
+          android:fillColor="#0D47A1"
+          android:pathData="M40.02,30.76c-2.46,0 -4.84,-0.4 -7.06,-1.14c-0.7,-0.24 -1.48,-0.06 -2.02,0.48l-4.4,4.4c-5.66,-2.88 -10.3,-7.5 -13.18,-13.16l4.4,-4.42c0.56,-0.54 0.72,-1.32 0.5,-2.02c-0.76,-2.22 -1.14,-4.6 -1.14,-7.06c0,-1.46 -1.18,-2.66 -2.64,-2.66H6.04c-1.46,0 -2.64,1.2 -2.64,2.66c0,19.42 15.8,35.24 35.24,35.24c1.46,0 2.64,-1.18 2.64,-2.64v-8.48c0,-1.46 -1.18,-2.64 -2.64,-2.64z"/>
+  </group>
+</vector>

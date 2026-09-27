@@ -1,0 +1,99 @@
+
+## Start of default rc - ProAgent by HiTec
+
+[sip]
+contact="ProAgent" <sip:proagent@unknown-host>
+use_info=0
+use_ipv6=0
+keepalive_period=30000
+# Standard SIP ports for all transports
+sip_port=5060
+sip_tcp_port=5060
+sip_tls_port=5061
+# No encryption by default for max PBX compatibility (can be changed per-account)
+media_encryption=none
+update_presence_model_timestamp_before_publish_expires_refresh=1
+# RFC 2833 DTMF - best for Grandstream
+use_rfc2833=1
+use_info=0
+# Don't wait for network detection to attempt registration
+register_only_when_network_is_up=0
+# Auto network state monitoring
+auto_net_state_mon=1
+
+[net]
+#Because dynamic bitrate adaption can increase bitrate, we must allow "no limit"
+download_bw=0
+upload_bw=0
+# MTU optimized for Grandstream
+mtu=1400
+# Enable DNS SRV lookup for SIP services discovery
+dns_srv_enabled=1
+
+[video]
+size=vga
+automatically_accept=0
+automatically_initiate=0
+automatically_accept_direction=2 #receive only
+
+[app]
+tunnel=disabled
+auto_download_incoming_voice_recordings=1
+auto_download_incoming_icalendars=1
+
+[tunnel]
+host=
+port=443
+
+[misc]
+# AgentPro: these two shipped with linphone's file server in them, so every fresh install
+# started out configured to send debug traces - which name the customer's PBX, extensions and
+# SIP traffic - and chat attachments to linphone. CoreContext clears them at each launch, but
+# that is a repair after the fact: the values were written into the customer's own linphonerc
+# first, and were only found by reading the config off a real phone. Empty here means they
+# never arrive in the first place.
+log_collection_upload_server_url=
+file_transfer_server_url=
+version_check_url_root=
+max_calls=10
+history_max_size=200
+conference_layout=1
+hide_empty_chat_rooms=1
+
+[fec]
+fec_enabled=1
+
+[magic_search]
+return_empty_friends=1
+
+[chat]
+imdn_to_everybody_threshold=1
+
+[ui]
+# Empty contacts_filter = show all contacts (not just linphone.org ones)
+contacts_filter=
+# Blue theme for ProAgent/HiTec
+theme_main_color=blue
+# Default "Add account" goes straight to the third-party SIP login form (the UCM accounts). A
+# separate "Add Linphone account" entry (dialpad account menu) opens the Linphone landing instead.
+assistant_go_directly_to_third_party_sip_account_login=1
+# Hide "Register" (create account): it calls liblinphone's AccountManagerServices, which needs
+# Linphone's signup server (not configured here) and crashes NATIVELY. Adding a Linphone account is
+# login-only — create one on linphone.org first, then sign in. "Forgotten password" is hidden in
+# LandingFragment for the same reason.
+assistant_hide_create_account=1
+# Hide "Sign in with a SIP account" on the Linphone landing — adding a UCM/SIP account is done from
+# the dialpad's "Add account", so the button is redundant on the "Add Linphone account" screen.
+assistant_hide_third_party_account=1
+assistant_disable_qr_code=0
+# AgentPro: TLS by default, matching the desktop build, which registers against the same
+# Grandstream PBXs over TLS. This line previously read "udp" with a note that Grandstream
+# wanted it - UDP does work, but it sends the SIP signalling in the clear: the account's
+# username and password, the numbers dialled and who called whom are readable by anything on
+# the path. An agent who never opens the dropdown would be unencrypted without knowing it.
+# Still a dropdown, so a PBX with TLS switched off can be set back to UDP or TCP per install.
+assistant_third_party_sip_account_transport=tls
+# Show dialpad automatically
+automatically_show_dialpad=0
+
+## End of default rc

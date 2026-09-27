@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="5dp"
+    android:layoutDirection="ltr"
+    android:background="@drawable/campaign_row_divider">
+
+    <CheckBox
+        android:id="@+id/item_select"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:buttonTint="#6C8CFF" />
+
+    <ImageView
+        android:id="@+id/item_edit"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:padding="8dp"
+        android:src="@drawable/pencil_simple"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#6E7681" />
+
+    <TextView
+        android:id="@+id/item_index"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#6E7681"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingEnd="8dp" />
+
+    <TextView
+        android:id="@+id/item_phone"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#5B9CFF"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/item_disposition"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="—"
+        android:textColor="#8A8F98"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/item_status"
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/ap_pending"
+        android:textColor="#B6BDC7"
+        android:textSize="11sp"
+        android:paddingVertical="4dp"
+        android:background="@drawable/shape_disposition_button" />
+
+    <TextView
+        android:id="@+id/item_lastcall"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="—"
+        android:textColor="#8A8F98"
+        android:textSize="12sp"
+        android:maxLines="1" />
+
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/item_call"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="9dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/phone"
+            android:background="@drawable/shape_call_circle_green"
+            app:tint="#2ECC71"
+            android:contentDescription="@string/ap_call" />
+
+        <ImageView
+            android:id="@+id/item_delete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="9dp"
+            android:src="@drawable/trash"
+            android:background="@drawable/shape_delete_circle_red"
+            app:tint="#E74C3C"
+            android:contentDescription="@string/ap_delete" />
+    </LinearLayout>
+</LinearLayout>

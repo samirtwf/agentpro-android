@@ -1,0 +1,18 @@
+*.iml
+.gradle
+/local.properties
+local.properties
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+app/debug/
+app/release/
+.idea/
+.kotlin/
+*.keystore
+*.jks
+
+# Private, never committed: the credential key (created by the first build)
+credential-key.properties

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="org.linphone.ui.call.viewmodel.CurrentCallViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp"
+        android:background="@drawable/shape_squircle_gray_600_top_call_background">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_700"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:text="@string/call_audio_gain_title"
+            android:textColor="@color/bc_white"
+            android:textSize="16sp" />
+
+        <!-- ===== Microphone sensitivity ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/settings_advanced_microphone_gain_title"
+                android:textColor="@color/bc_white"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_700"
+                android:gravity="end"
+                android:minWidth="72dp"
+                android:text="@{viewModel.microphoneGainLabel}"
+                android:textColor="?attr/color_main1_500"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/microphone_gain_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:max="20"
+            android:progress="@{viewModel.microphoneGain, default=0}"
+            android:progressTint="?attr/color_main1_500"
+            android:thumbTint="?attr/color_main1_500" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:fontFamily="@font/noto_sans"
+            android:paddingBottom="16dp"
+            android:text="@string/settings_advanced_microphone_gain_subtitle"
+            android:textColor="@color/bc_white"
+            android:textSize="12sp" />
+
+        <!-- ===== Received volume ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/settings_advanced_received_volume_title"
+                android:textColor="@color/bc_white"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_700"
+                android:gravity="end"
+                android:minWidth="72dp"
+                android:text="@{viewModel.receivedVolumeGainLabel}"
+                android:textColor="?attr/color_main1_500"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/received_volume_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:max="20"
+            android:progress="@{viewModel.receivedVolumeGain, default=0}"
+            android:progressTint="?attr/color_main1_500"
+            android:thumbTint="?attr/color_main1_500" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:fontFamily="@font/noto_sans"
+            android:text="@string/settings_advanced_received_volume_subtitle"
+            android:textColor="@color/bc_white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F1115"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/ap_agentpro"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/trial_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/ap_trial_period_ended"
+            android:textColor="#FF6B6B"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/trial_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/ap_your_trial_of_agentpro_has_ended_to_keep"
+            android:textColor="#AEB6C2"
+            android:textSize="14sp" />
+
+        <!-- Device ID -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:background="#1A1D24"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ap_your_device_id_send_this_to_the_develope"
+                android:textColor="#8C94A0"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/trial_device_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textIsSelectable="true"
+                android:text="—"
+                android:textColor="#4FC3F7"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/trial_copy_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:padding="6dp"
+                android:text="@string/ap_copy_id"
+                android:textColor="#4FC3F7"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Developer contact -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/ap_contact_the_developer_for_your_code"
+            android:textColor="#8C94A0"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/ap_samir_mohamad_tawfik"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/trial_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="6dp"
+            android:drawablePadding="8dp"
+            android:text="@string/ap_samirtwf_gmail_com"
+            android:textColor="#4FC3F7"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/trial_whatsapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="6dp"
+            android:text="@string/ap_whatsapp_966_55_248_6524"
+            android:textColor="#4FC3F7"
+            android:textSize="15sp" />
+
+        <!-- Activation -->
+        <EditText
+            android:id="@+id/trial_code_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#1A1D24"
+            android:padding="14dp"
+            android:gravity="top|start"
+            android:minLines="2"
+            android:maxLines="4"
+            android:hint="@string/ap_paste_your_activation_code_here"
+            android:textColorHint="#5A6270"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="monospace"
+            android:inputType="textMultiLine|textNoSuggestions" />
+
+        <TextView
+            android:id="@+id/trial_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textColor="#FF6B6B"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/trial_activate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2E7D32"
+            android:text="@string/ap_activate"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/trial_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#2A2E37"
+            android:text="@string/ap_exit"
+            android:textColor="#AEB6C2"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

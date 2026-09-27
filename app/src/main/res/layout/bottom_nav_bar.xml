@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="org.linphone.ui.NotoSansFont" />
+        <variable
+            name="viewModel"
+            type="org.linphone.ui.main.viewmodel.AbstractMainViewModel" />
+    </data>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        android:elevation="16dp"
+        android:background="?attr/color_background_contrast_in_dark_mode">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_nav_bar_inner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- 1. Dialpad -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/dialpad"
+                android:onClick="@{() -> viewModel.navigateToDialpad()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/phone"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.dialpadSelected ? @color/main1_500 : @color/main2_600, default=@color/main1_500}"
+                android:text="@string/ap_dialpad"
+                textFont="@{viewModel.dialpadSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 2. Disposition -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/disp"
+                android:onClick="@{() -> viewModel.navigateToDisp()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/calendar"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.dispSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_disp"
+                textFont="@{viewModel.dispSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dialpad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 3. Campaign -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/campaign"
+                android:onClick="@{() -> viewModel.navigateToCampaign()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/list"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.campaignSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_campaign"
+                textFont="@{viewModel.campaignSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/disp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 4. Contacts -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/contacts"
+                android:onClick="@{() -> viewModel.navigateToContacts()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/address_book"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.contactsSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/bottom_navigation_contacts_label"
+                textFont="@{viewModel.contactsSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/campaign"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 5. Panel -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/panel"
+                android:onClick="@{() -> viewModel.navigateToPanel()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/squares_four"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.panelSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_panel"
+                textFont="@{viewModel.panelSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/contacts"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 6. History -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/history"
+                android:onClick="@{() -> viewModel.navigateToHistory()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/clock"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.callsSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_history"
+                textFont="@{viewModel.callsSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/panel"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 7. Settings -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/settings"
+                android:onClick="@{() -> viewModel.navigateToSettings()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/gear"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/main2_600"
+                android:text="@string/ap_settings"
+                textFont="@{NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/history"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 8. CDR -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/cdr"
+                android:onClick="@{() -> viewModel.navigateToCdr()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/info"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.cdrSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_cdr"
+                textFont="@{viewModel.cdrSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/settings"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 9. Agent -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/agent"
+                android:onClick="@{() -> viewModel.navigateToAgent()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/headset"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.agentSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_agent"
+                textFont="@{viewModel.agentSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cdr"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 10. Wallboard -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/wallboard"
+                android:onClick="@{() -> viewModel.navigateToWallboard()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/monitor"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.wallboardSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_wallboard"
+                textFont="@{viewModel.wallboardSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/agent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 11. Minutes usage -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/bottom_nav_bar_label_style"
+                android:id="@+id/usage"
+                android:onClick="@{() -> viewModel.navigateToUsage()}"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="9dp"
+                android:paddingBottom="8dp"
+                android:drawableTop="@drawable/clock"
+                android:background="@drawable/squircle_transparent_button_background"
+                android:drawablePadding="4dp"
+                android:drawableTint="@{viewModel.usageSelected ? @color/main1_500 : @color/main2_600, default=@color/main2_600}"
+                android:text="@string/ap_minutes"
+                textFont="@{viewModel.usageSelected ? NotoSansFont.NotoSansBold : NotoSansFont.NotoSansRegular}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/wallboard"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Missed calls badge over History -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/unread_count_text_style"
+                android:id="@+id/missed_calls"
+                android:layout_width="@dimen/unread_count_indicator_size"
+                android:layout_height="@dimen/unread_count_indicator_size"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="2dp"
+                android:text="@{String.valueOf(viewModel.missedCallsCount), default=`1`}"
+                android:visibility="@{viewModel.missedCallsCount > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/history"
+                app:layout_constraintEnd_toEndOf="@id/history"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+</layout>

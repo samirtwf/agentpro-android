@@ -1,0 +1,99 @@
+
+## Start of factory rc - ProAgent by HiTec
+## Optimized for Grandstream UCM & standard SIP PBXs
+
+[net]
+mtu=1400
+# STUN enabled for NAT traversal - discovers public IP for SDP
+# Without STUN: SDP contains private LAN IP -> PBX from WAN can't send RTP back (one-way/no audio)
+# With STUN (no ICE): SDP contains public IP -> bidirectional RTP from both LAN and WAN
+# LAN: symmetric_rtp ensures PBX uses source IP/port for sending back
+force_ice_disablement=1
+# Enable DNS SRV for automatic SIP server discovery
+dns_srv_enabled=1
+
+[rtp]
+# Symmetric RTP: use same port for sending and receiving
+# This is critical for NAT/Grandstream compatibility
+symmetric_rtp=1
+# Accept both encrypted and non-encrypted RTP for max compatibility
+accept_any_encryption=1
+# Don't check RTP port in SDP - fixes one-way audio
+no_rtp_port_check=1
+
+[sip]
+verify_server_certs=0
+verify_server_cn=0
+guess_hostname=1
+register_only_when_network_is_up=0
+auto_net_state_mon=1
+auto_answer_replacing_calls=1
+ping_with_options=0
+# Use RFC 2833 for DTMF - best compatibility with Grandstream UCM
+use_rfc2833=1
+use_info=0
+# Reduced transport timeout for faster failure detection (10s instead of 30s)
+sip_transport_timeout=10000
+# Keepalive for NAT traversal
+keepalive_period=30000
+use_cpim=0
+chat_messages_aggregation_delay=1000
+chat_messages_aggregation=1
+update_presence_model_timestamp_before_publish_expires_refresh=1
+# TCP/TLS keepalive to maintain persistent connections
+tcp_tls_keepalive=1
+# Standard SIP ports
+sip_port=5060
+sip_tcp_port=5060
+sip_tls_port=5061
+
+[sound]
+disable_ringing=0
+# Echo canceller - important for softphone quality
+echocancellation=1
+echonoisegatethreshold=0
+
+[audio]
+android_disable_audio_focus_requests=1
+android_monitor_audio_devices=0
+
+[video]
+displaytype=MSAndroidTextureDisplay
+auto_resize_preview_to_keep_ratio=1
+automatically_accept=0
+automatically_initiate=0
+
+[misc]
+# AgentPro: forced empty here, in the factory config, because that is the only layer that
+# wins. These were cleared from linphonerc_default and cleared again in code at every launch,
+# and the URL still came back into the phone's own linphonerc: the SDK carries its own
+# built-in default and applies it after the app has finished starting. The factory config is
+# re-applied over those defaults on every run, so this is what actually holds.
+#
+# What it prevents: debug traces - which name the customer's PBX, their extensions and their
+# SIP traffic - being uploaded to linphone's file server, and chat attachments travelling
+# through it. With the URL empty the "Share logs" button is hidden too, since the UI keys off
+# exactly this value.
+log_collection_upload_server_url=
+file_transfer_server_url=
+version_check_url_root=
+enable_basic_to_client_group_chat_room_migration=0
+enable_simple_group_chat_message_state=0
+aggregate_imdn=1
+notify_each_friend_individually_when_presence_received=0
+store_friends=0
+max_calls=10
+history_max_size=200
+
+[app]
+record_aware=1
+# Always-connected agent phone: run the keep-alive foreground service from first
+# launch (no FCM push in this build — the service is the only thing keeping the
+# SIP registration alive with the screen off) and restart it after device boot.
+keep_service_alive=1
+auto_start=1
+
+[lime]
+lime_update_threshold=86400
+
+## End of factory rc

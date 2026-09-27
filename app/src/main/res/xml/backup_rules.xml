@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   AgentPro: nothing this app stores may leave the device.
+
+   Android's auto-backup is on by default and copies the whole sandbox to the user's Google
+   Drive. That sandbox holds linphonerc - which carries the SIP account's password in clear -
+   plus the call history, the chat database and the PBX settings. So the credentials of every
+   agent would sit in Google's storage, survive an uninstall, and restore themselves onto any
+   new phone signed in to the same account. That is a wider exposure than anything left on the
+   device itself, and it happens with no action from the user.
+
+   This file governs Android 11 and below. res/xml/data_extraction_rules.xml governs 12+, and
+   android:allowBackup="false" in the manifest is what actually switches the feature off - the
+   rules here are the belt to that pair of braces, so a future build that flips allowBackup
+   back on does not silently start shipping accounts to the cloud.
+-->
+<full-backup-content>
+    <exclude domain="root" path="." />
+    <exclude domain="file" path="." />
+    <exclude domain="database" path="." />
+    <exclude domain="sharedpref" path="." />
+    <exclude domain="external" path="." />
+</full-backup-content>

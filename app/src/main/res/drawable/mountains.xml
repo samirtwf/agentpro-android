@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   AgentPro: linphone's decorative "mountains" band - the wave shape across the bottom of every
+   assistant screen - drawn as three tinted paths. It is one of their recognisable brand marks,
+   so it cannot stay in a white-label product. The same band was removed from the desktop build.
+
+   Made invisible rather than deleted, and the original width/height kept. Nine layouts
+   reference this drawable, and several constrain their own views with
+   layout_constraintBottom_toTopOf="@id/mountains" - deleting the file breaks the build, and
+   removing the ImageView from each layout breaks those chains. Same size, nothing visible, so
+   no screen shifts.
+
+   The single path below is required: a <vector> with no path at all fails to inflate at
+   runtime (Resources$NotFoundException on this file), which crashed the app on launch. It is
+   kept degenerate and fully transparent - fillColor is ignored anyway once android:tint is
+   applied by the layouts, so the geometry has to be what makes it invisible, not the colour.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1084dp"
+    android:height="108dp"
+    android:viewportWidth="1084"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,0L0,0Z" />
+</vector>

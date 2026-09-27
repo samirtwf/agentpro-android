@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12151B"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header (no linphone logo) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:id="@+id/menu_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/ap_back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginEnd="40dp"
+                android:text="@string/ap_settings"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/menu_accounts"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_accounts"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/users"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="6dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/menu_pbx"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_pbx_connection_settings"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/gear"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/menu_app_settings"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_app_settings_advanced"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/squares_four"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- AgentPro: prominent in-app language switcher -->
+        <TextView
+            android:id="@+id/menu_language"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/settings_user_interface_language_title"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/globe_hemisphere_west"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/menu_guide"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_user_guide"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/book_open_text"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/menu_export"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_export_configuration_encrypted"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/lock_key"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/menu_import"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_import_configuration"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/lock_simple"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="#C7CDD6"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/menu_quit"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:drawablePadding="16dp"
+            android:text="@string/ap_quit_app"
+            android:textColor="#E8A33D"
+            android:textSize="16sp"
+            android:background="@drawable/squircle_transparent_button_background"
+            android:drawableStart="@drawable/power"
+            android:drawableTint="#E8A33D"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- White-label company credit: company icon (= the app/launcher icon) above
+             "Made especially for <company>". Hidden unless the APK Builder set a company name. -->
+        <LinearLayout
+            android:id="@+id/company_credit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:layout_marginTop="28dp">
+
+            <ImageView
+                android:id="@+id/company_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="200dp"
+                android:contentDescription="@string/ap_company_logo" />
+
+            <TextView
+                android:id="@+id/company_credit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#C7CDD6"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/ap_about"
+            android:textColor="#7C8696"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/about_license"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            android:text="@string/ap_license"
+            android:textColor="#5FD068"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/about_activate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="4dp"
+            android:paddingVertical="4dp"
+            android:text="@string/ap_activate_license"
+            android:textColor="#2D7FF0"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="4dp"
+            android:text="@string/ap_developer_title"
+            android:textColor="#7C8696"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/about_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:text="@string/ap_developer_company"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/about_team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:text="@string/ap_developer_team"
+            android:textColor="#C7CDD6"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/about_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            android:paddingVertical="4dp"
+            android:text="@string/ap_developer_email"
+            android:textColor="#2D7FF0"
+            android:textSize="14sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/about_whatsapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="12dp"
+            android:paddingVertical="4dp"
+            android:text="@string/ap_developer_phone"
+            android:textColor="#2ECC71"
+            android:textSize="14sp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+</ScrollView>

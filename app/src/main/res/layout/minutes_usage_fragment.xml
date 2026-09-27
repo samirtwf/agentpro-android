@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="org.linphone.ui.main.viewmodel.AbstractMainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr"
+        android:background="#12151B">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/usage_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ap_minutes_usage"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/usage_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ap_talk_minutes_between_two_date_times"
+                android:textColor="#6E7681"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/usage_header"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="16dp">
+
+                <RadioGroup
+                    android:id="@+id/usage_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="4dp">
+                    <RadioButton
+                        android:id="@+id/usage_mode_single"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ap_single"
+                        android:checked="true"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#2D7FF0" />
+                    <RadioButton
+                        android:id="@+id/usage_mode_multi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:text="@string/ap_multiple_range"
+                        android:textColor="#FFFFFF"
+                        android:buttonTint="#2D7FF0" />
+                </RadioGroup>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/usage_ext_label"
+                    android:text="@string/ap_extension_2" android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="10dp" android:paddingBottom="2dp" />
+                <EditText
+                    android:id="@+id/usage_ext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ap_e_g_2090"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5A606B"
+                    android:backgroundTint="#3A4150" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/ap_from_yyyy_mm_dd_hh_mm_ss" android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="14dp" android:paddingBottom="2dp" />
+                <EditText
+                    android:id="@+id/usage_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5A606B"
+                    android:backgroundTint="#3A4150" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/ap_to_yyyy_mm_dd_hh_mm_ss" android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="14dp" android:paddingBottom="2dp" />
+                <EditText
+                    android:id="@+id/usage_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5A606B"
+                    android:backgroundTint="#3A4150" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/ap_alarm_at_minutes" android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="14dp" android:paddingBottom="2dp" />
+                <EditText
+                    android:id="@+id/usage_alarm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="2700"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5A606B"
+                    android:backgroundTint="#3A4150" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/ap_digit_filter_count_a_call_only_if_the_ot"
+                    android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="14dp" android:paddingBottom="2dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/ap_min" android:textColor="#8A8F98" android:textSize="13sp"
+                        android:paddingEnd="8dp" />
+                    <EditText
+                        android:id="@+id/usage_mindigits"
+                        android:layout_width="84dp"
+                        android:layout_height="wrap_content"
+                        android:hint="10"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#5A606B"
+                        android:backgroundTint="#3A4150" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/ap_max" android:textColor="#8A8F98" android:textSize="13sp"
+                        android:paddingStart="22dp" android:paddingEnd="8dp" />
+                    <EditText
+                        android:id="@+id/usage_maxdigits"
+                        android:layout_width="84dp"
+                        android:layout_height="wrap_content"
+                        android:hint="10"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#5A606B"
+                        android:backgroundTint="#3A4150" />
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/ap_networks_name_prefixes" android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="14dp" android:paddingBottom="2dp" />
+                <EditText
+                    android:id="@+id/usage_networks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="STC=050,053,055;Mobily=054,056;Zain=058,059"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5A606B"
+                    android:backgroundTint="#3A4150" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/ap_network_quotas_name_minutes" android:textColor="#8A8F98" android:textSize="13sp"
+                    android:paddingTop="14dp" android:paddingBottom="2dp" />
+                <EditText
+                    android:id="@+id/usage_limits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="STC=300;Mobily=200"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#5A606B"
+                    android:backgroundTint="#3A4150" />
+
+                <CheckBox
+                    android:id="@+id/usage_autoblock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/ap_auto_block_over_quota"
+                    android:textColor="#FFFFFF"
+                    android:buttonTint="#2D7FF0" />
+
+                <TextView
+                    android:id="@+id/usage_calc"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center"
+                    android:text="@string/ap_calculate"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/shape_btn_blue"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/usage_block"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="@string/ap_manage_blocking"
+                    android:textColor="#FF7A52"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/shape_btn_blue"
+                    android:backgroundTint="#33231E"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/usage_export"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="@string/ap_export_to_excel_share"
+                    android:textColor="#2ECC71"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/shape_btn_blue"
+                    android:backgroundTint="#1E3326"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:scrollbars="horizontal">
+                    <TextView
+                        android:id="@+id/usage_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+                </HorizontalScrollView>
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/bottom_nav_bar"
+            layout="@layout/bottom_nav_bar"
+            app:viewModel="@{viewModel}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

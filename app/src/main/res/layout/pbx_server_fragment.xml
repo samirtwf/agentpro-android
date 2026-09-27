@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12151B"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/pbx_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/ap_back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginEnd="40dp"
+                android:text="@string/ap_settings"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ap_select_your_telephony_platform_and_enter"
+            android:textColor="#8A8F98"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Per-account banner: makes it clear these PBX settings are scoped to the ACTIVE account,
+             so a multi-account user knows to switch account before setting up another PBX. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/shape_disposition_button"
+            android:padding="14dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ap_these_pbx_settings_are_saved_for_this_ac"
+                android:textColor="#8A8F98"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/pbx_account_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="—"
+                android:textColor="#2D7FF0"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/ap_each_account_has_its_own_pbx_to_set_up_a"
+                android:textColor="#6E7681"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layoutDirection="ltr"
+            android:layout_marginTop="8dp">
+            <TextView style="@style/pbx_section_label" android:text="@string/ap_sip_account"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_marginTop="0dp" />
+            <TextView android:id="@+id/pbx_status_sip"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="—" android:textColor="#6E7681" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pbx_account_manage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/ap_manage_sip_account"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/shape_btn_gray"
+            android:layout_marginTop="6dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/pbx_account_add"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="@string/ap_add_account_2"
+            android:textColor="#2D7FF0"
+            android:textSize="14sp"
+            android:background="@drawable/shape_disposition_button"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView style="@style/pbx_section_label" android:text="@string/ap_server_type" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/shape_disposition_button"
+            android:padding="14dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ap_ucm_server"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/ap_ucm_server_connects_via_ami_on_tcp"
+                android:textColor="#6E7681"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layoutDirection="ltr"
+            android:layout_marginTop="8dp">
+            <TextView style="@style/pbx_section_label" android:text="@string/ap_ami_connection"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_marginTop="0dp" />
+            <TextView android:id="@+id/pbx_status_ami"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="—" android:textColor="#6E7681" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_host_ip_address" />
+        <EditText android:id="@+id/pbx_host" style="@style/pbx_field"
+            android:inputType="text" android:hint="192.168.1.10" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_ami_port" />
+        <EditText android:id="@+id/pbx_port" style="@style/pbx_field"
+            android:inputType="number" android:hint="7777" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_ami_username" />
+        <EditText android:id="@+id/pbx_user" style="@style/pbx_field"
+            android:inputType="text" android:hint="@string/ap_manager" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_ami_password" />
+        <EditText android:id="@+id/pbx_pass" style="@style/pbx_field"
+            android:inputType="textPassword" android:hint="••••••••" />
+
+        <TextView style="@style/pbx_section_label" android:text="@string/ap_spy_feature_codes_call_barging" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_listen_code" />
+        <EditText android:id="@+id/pbx_listen" style="@style/pbx_field"
+            android:inputType="textNoSuggestions" android:hint="*54" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_whisper_code" />
+        <EditText android:id="@+id/pbx_whisper" style="@style/pbx_field"
+            android:inputType="textNoSuggestions" android:hint="*55" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_barge_code" />
+        <EditText android:id="@+id/pbx_barge" style="@style/pbx_field"
+            android:inputType="textNoSuggestions" android:hint="*56" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layoutDirection="ltr"
+            android:layout_marginTop="8dp">
+            <TextView style="@style/pbx_section_label" android:text="@string/ap_portal_https_api_cdr_recordings"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_marginTop="0dp" />
+            <TextView android:id="@+id/pbx_status_api"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="—" android:textColor="#6E7681" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_api_port" />
+        <EditText android:id="@+id/pbx_api_port" style="@style/pbx_field"
+            android:inputType="number" android:hint="8089" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_api_username" />
+        <EditText android:id="@+id/pbx_api_user" style="@style/pbx_field"
+            android:inputType="text" android:hint="@string/ap_cdrapi" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_api_password" />
+        <EditText android:id="@+id/pbx_api_pass" style="@style/pbx_field"
+            android:inputType="textPassword" android:hint="••••••••" />
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layoutDirection="ltr"
+            android:layout_marginTop="8dp">
+            <TextView style="@style/pbx_section_label" android:text="@string/ap_web_gui_login_cdr_pbx_page"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_marginTop="0dp" />
+            <TextView android:id="@+id/pbx_status_web"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="—" android:textColor="#6E7681" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_web_username" />
+        <EditText android:id="@+id/pbx_web_user" style="@style/pbx_field"
+            android:inputType="text" android:hint="@string/ap_admin" />
+
+        <TextView style="@style/pbx_field_label" android:text="@string/ap_web_password" />
+        <EditText android:id="@+id/pbx_web_pass" style="@style/pbx_field"
+            android:inputType="textPassword" android:hint="••••••••" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView android:id="@+id/pbx_test"
+                android:layout_width="0dp" android:layout_height="50dp" android:layout_weight="1"
+                android:gravity="center" android:text="@string/ap_test_connection"
+                android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"
+                android:background="@drawable/shape_btn_gray"
+                android:clickable="true" android:focusable="true" />
+
+            <TextView android:id="@+id/pbx_save"
+                android:layout_width="0dp" android:layout_height="50dp" android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:gravity="center" android:text="@string/ap_save"
+                android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"
+                android:background="@drawable/shape_btn_blue"
+                android:clickable="true" android:focusable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

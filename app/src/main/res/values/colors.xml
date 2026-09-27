@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent_color">#00000000</color>
+    <color name="bc_black">#000000</color>
+    <color name="bc_white">#FFFFFF</color>
+    <color name="dialog_background">#99000000</color><!-- 60% opacity -->
+    <color name="shadow">#10000000</color>
+    <color name="vu_meter">#3CFFFFFF</color>
+
+    <color name="background_color_dark_mode">#191919</color>
+    <color name="background_color_alt_dark_mode">#303030</color>
+
+    <!-- ProAgent / HiTec Blue Color Palette -->
+    <color name="hitec_blue_50">#E3F2FD</color>
+    <color name="hitec_blue_100">#BBDEFB</color>
+    <color name="hitec_blue_100_alpha_50">#80BBDEFB</color>
+    <color name="hitec_blue_200">#90CAF9</color>
+    <color name="hitec_blue_300">#64B5F6</color>
+    <color name="hitec_blue_400">#42A5F5</color>
+    <color name="hitec_blue_500">#1565C0</color>
+    <color name="hitec_blue_600">#1E88E5</color>
+    <color name="hitec_blue_700">#0D47A1</color>
+    <color name="hitec_blue_800">#0A3880</color>
+    <color name="hitec_blue_900">#07266B</color>
+
+    <!-- Keep orange_main colors: required by Linphone SDK internal resources (values-night-v8.xml) -->
+    <!-- These are NOT used as the main theme color - HiTec Blue is used instead -->
+    <color name="orange_main_100">#FFEACB</color>
+    <color name="orange_main_100_alpha_50">#80FFEACB</color>
+    <color name="orange_main_300">#FFB266</color>
+    <color name="orange_main_500">#FF5E00</color>
+    <color name="orange_main_700">#B72D00</color>
+
+
+    <color name="gray_main2_100">#EEF6F8</color>
+    <color name="gray_main2_200">#DFECF2</color>
+    <color name="gray_main2_300">#C0D1D9</color>
+    <color name="gray_main2_400">#9AABB5</color>
+    <color name="gray_main2_500">#6C7A87</color>
+    <color name="gray_main2_600">#4E6074</color>
+    <color name="gray_main2_700">#364860</color>
+    <color name="gray_main2_800">#22334D</color>
+
+    <color name="gray_100">#F9F9F9</color>
+    <color name="gray_200">#EDEDED</color>
+    <color name="gray_200_night">#1F1F1F</color>
+    <color name="gray_300">#C9C9C9</color>
+    <color name="gray_300_alpha_40">#66C9C9C9</color>
+    <color name="gray_400">#949494</color>
+    <color name="gray_500">#4E4E4E</color>
+    <color name="gray_600">#2E3030</color>
+    <color name="gray_700">#383939</color>
+    <color name="gray_800">#0F0F0F</color>
+    <color name="gray_900">#070707</color>
+
+    <color name="red_danger_500">#DD5F5F</color>
+    <color name="red_danger_500_night">#E17474</color>
+    <color name="red_danger_700">#9E3548</color>
+    <color name="red_danger_700_night">#B13B51</color>
+    <color name="red_danger_900">#723333</color>
+    <color name="red_danger_900_night">#843B3B</color>
+
+    <color name="green_success_200">#ACF5C1</color>
+    <color name="green_success_200_night">#0D6A27</color>
+    <color name="green_success_500">#4FAE80</color>
+    <color name="green_success_500_night">#60B78D</color>
+    <color name="green_success_700">#377D71</color>
+    <color name="green_success_700_night">#3F8F81</color>
+
+    <color name="blue_info_500">#4AA8FF</color>
+    <color name="blue_info_500_night">#64B4FF</color>
+
+    <color name="orange_plain_text_security_warning_600">#AF9308</color>
+    <color name="orange_warning_600">#DBB820</color>
+    <color name="orange_warning_600_night">#E1C133</color>
+
+    <color name="gradient_progress">#80FFFFFF</color>
+
+    <color name="yellow_main_100">#FFF5D6</color>
+    <color name="yellow_main_100_alpha_50">#80FFF5D6</color>
+    <color name="yellow_main_300">#FFE799</color>
+    <color name="yellow_main_500">#F5BC00</color>
+    <color name="yellow_main_700">#A37D00</color>
+
+    <color name="green_main_100">#DCF9E7</color>
+    <color name="green_main_100_alpha_50">#80DCF9E7</color>
+    <color name="green_main_300">#A8F0C2</color>
+    <color name="green_main_500">#25D366</color>
+    <color name="green_main_700">#1C9C4B</color>
+
+    <color name="blue_main_100">#D6F4FF</color>
+    <color name="blue_main_100_alpha_50">#80D6F4FF</color>
+    <color name="blue_main_300">#99E4FF</color>
+    <color name="blue_main_500">#00aff0</color>
+    <color name="blue_main_700">#0078A3</color>
+
+    <color name="red_main_100">#FBE1DA</color>
+    <color name="red_main_100_alpha_50">#80FBE1DA</color>
+    <color name="red_main_300">#F5B53A</color>
+    <color name="red_main_500">#E14318</color>
+    <color name="red_main_700">#A63211</color>
+
+    <color name="pink_main_100">#FFD6F1</color>
+    <color name="pink_main_100_alpha_50">#80FFD6F1</color>
+    <color name="pink_main_300">#FF99DD</color>
+    <color name="pink_main_500">#FF00A9</color>
+    <color name="pink_main_700">#B8007A</color>
+
+    <color name="purple_main_100">#FFD6FF</color>
+    <color name="purple_main_100_alpha_50">#80FFD6FF</color>
+    <color name="purple_main_300">#FF99FF</color>
+    <color name="purple_main_500">#800080</color>
+    <color name="purple_main_700">#520052</color>
+</resources>

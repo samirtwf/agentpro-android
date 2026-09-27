@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="256"
+    android:viewportHeight="256">
+  <!-- top slider track -->
+  <path
+      android:pathData="M40,82h176a6,6 0 0 1 0,12h-176a6,6 0 0 1 0,-12z"
+      android:fillColor="#4e6074"/>
+  <!-- top slider knob -->
+  <path
+      android:pathData="M76,88a20,20 0 1,0 40,0a20,20 0 1,0 -40,0z"
+      android:fillColor="#4e6074"/>
+  <!-- bottom slider track -->
+  <path
+      android:pathData="M40,162h176a6,6 0 0 1 0,12h-176a6,6 0 0 1 0,-12z"
+      android:fillColor="#4e6074"/>
+  <!-- bottom slider knob -->
+  <path
+      android:pathData="M148,168a20,20 0 1,0 40,0a20,20 0 1,0 -40,0z"
+      android:fillColor="#4e6074"/>
+</vector>

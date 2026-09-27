@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   AgentPro: nothing this app stores may leave the device. See res/xml/backup_rules.xml for
+   why - the short version is that linphonerc holds the SIP password in clear, and the default
+   behaviour copies it to the user's Google Drive.
+
+   This file governs Android 12 and above, where backup splits in two:
+     cloud-backup   - to the user's Google account. Excluded entirely.
+     device-transfer - phone-to-phone during setup, never leaving the user's hands. Also
+                       excluded, so a transferred device starts with no account rather than
+                       carrying credentials the new owner may not be entitled to. Agents are
+                       re-provisioned by the operator, so there is nothing to preserve here.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </device-transfer>
+</data-extraction-rules>

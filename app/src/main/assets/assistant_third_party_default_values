@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ProAgent SIP Account Defaults - Optimized for Grandstream UCM & standard SIP PBXs
+  Fix: Registration failures on all protocols - improved transport & timeout settings
+-->
+<config xmlns="http://www.linphone.org/xsds/lpconfig.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.linphone.org/xsds/lpconfig.xsd lpconfig.xsd">
+
+  <section name="proxy_default_values">
+    <!-- AVPF disabled - not supported by most Grandstream/PBX setups -->
+    <entry name="avpf" overwrite="true">0</entry>
+
+    <entry name="dial_escape_plus" overwrite="true">0</entry>
+
+    <!-- Presence publish disabled -->
+    <entry name="publish" overwrite="true">0</entry>
+    <entry name="publish_expires" overwrite="true">-1</entry>
+
+    <!-- Quality reporting disabled -->
+    <entry name="quality_reporting_collector" overwrite="true"></entry>
+    <entry name="quality_reporting_enabled" overwrite="true">0</entry>
+    <entry name="quality_reporting_interval" overwrite="true">0</entry>
+
+    <!-- Registration expires: 1800 seconds (30 minutes) - reduced for reliability -->
+    <entry name="reg_expires" overwrite="true">1800</entry>
+
+    <entry name="reg_identity" overwrite="true"></entry>
+    <entry name="reg_proxy" overwrite="true"></entry>
+    <entry name="reg_route" overwrite="true"></entry>
+    <entry name="reg_sendregister" overwrite="true">1</entry>
+
+    <!-- DISABLE NAT policy completely for local network Grandstream -->
+    <!-- ICE causes one-way audio: app sends STUN IP in SDP → PBX can't reach it -->
+    <entry name="nat_policy_ref" overwrite="true">nat_policy_default_values</entry>
+    <entry name="realm" overwrite="true"></entry>
+
+    <!-- No Linphone-specific servers -->
+    <entry name="conference_factory_uri" overwrite="true"></entry>
+    <entry name="audio_video_conference_factory_uri" overwrite="true"></entry>
+
+    <!-- Push notifications disabled for third-party SIP -->
+    <entry name="push_notification_allowed" overwrite="true">0</entry>
+
+    <!-- CPIM disabled -->
+    <entry name="cpim_in_basic_chat_rooms_enabled" overwrite="true">0</entry>
+
+    <!-- RTP bundle disabled for PBX compatibility -->
+    <entry name="rtp_bundle" overwrite="true">0</entry>
+
+    <!-- E2E encryption disabled -->
+    <entry name="lime_server_url" overwrite="true"></entry>
+    <entry name="lime_algo" overwrite="true"></entry>
+
+    <entry name="supported" overwrite="true">outbound</entry>
+  </section>
+
+  <section name="nat_policy_default_values">
+    <!-- Enable STUN for NAT traversal when connecting from WAN via domain -->
+    <!-- Without STUN: app puts private LAN IP in SDP -> PBX can't send RTP back (one-way/no audio) -->
+    <!-- With STUN (no ICE): app discovers public IP and puts it in SDP -> bidirectional RTP works -->
+    <!-- ICE is disabled in factory config (force_ice_disablement=1) so STUN is only for IP discovery -->
+    <entry name="stun_server" overwrite="true">stun.l.google.com:19302</entry>
+    <entry name="protocols" overwrite="true">stun</entry>
+  </section>
+
+  <section name="rtp">
+    <!-- Symmetric RTP: same port for TX and RX - required for Grandstream -->
+    <entry name="symmetric_rtp" overwrite="true">1</entry>
+    <!-- Don't validate RTP port in SDP answer -->
+    <entry name="no_rtp_port_check" overwrite="true">1</entry>
+  </section>
+
+  <section name="sip">
+    <!-- No media encryption by default -->
+    <entry name="media_encryption">none</entry>
+    <entry name="media_encryption_mandatory" overwrite="true">0</entry>
+    <!-- Don't wait for network detection -->
+    <entry name="register_only_when_network_is_up" overwrite="true">0</entry>
+    <!-- Enable automatic network state monitoring -->
+    <entry name="auto_net_state_mon" overwrite="true">1</entry>
+    <!-- Reduced transport timeout for faster error detection -->
+    <entry name="sip_transport_timeout" overwrite="true">10000</entry>
+  </section>
+
+</config>

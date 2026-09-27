@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="6dp"
+    android:padding="14dp"
+    android:background="@drawable/shape_card_offline">
+
+    <ImageView
+        android:id="@+id/card_dot"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:src="@drawable/shape_status_dot"
+        app:tint="#6E7681"
+        android:contentDescription="@string/ap_status_3" />
+
+    <TextView
+        android:id="@+id/card_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="6dp"
+        android:text="0000"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/card_ext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0000"
+        android:textColor="#6E7681"
+        android:textSize="14sp"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/card_calling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="6dp"
+        android:text="@string/ap_on_a_call"
+        android:textColor="#C7CDD6"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/card_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="@string/ap_offline"
+        android:textColor="#8A8F98"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="5dp" />
+
+    <LinearLayout
+        android:id="@+id/card_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:visibility="gone">
+
+        <LinearLayout style="@style/panel_action_cell">
+            <ImageView android:id="@+id/btn_listen" style="@style/panel_action_icon"
+                android:background="@drawable/shape_circle_blue" android:src="@drawable/ear"
+                android:contentDescription="@string/ap_listen" />
+            <TextView style="@style/panel_action_label" android:text="@string/ap_listen" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/panel_action_cell">
+            <ImageView android:id="@+id/btn_whisper" style="@style/panel_action_icon"
+                android:background="@drawable/shape_circle_purple" android:src="@drawable/microphone"
+                android:contentDescription="@string/ap_whisper" />
+            <TextView style="@style/panel_action_label" android:text="@string/ap_whisper" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/panel_action_cell">
+            <ImageView android:id="@+id/btn_barge" style="@style/panel_action_icon"
+                android:background="@drawable/shape_circle_red" android:src="@drawable/users"
+                android:contentDescription="@string/ap_barge" />
+            <TextView style="@style/panel_action_label" android:text="@string/ap_barge" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

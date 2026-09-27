@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   AgentPro: this file provisioned a linphone.org account - their SIP proxy, realm, STUN
+   server, conference factories, LIME key server and a quality-reporting collector that
+   posted call metrics to them. It is read by exactly two screens, the account creator and
+   the linphone account login, and neither can be reached: the assistant starts on the
+   third-party SIP login and nothing navigates back to the landing screen.
+
+   Emptied rather than deleted. The file is copied into the app's files directory on every
+   launch (CorePreferences.copyAssetsFromPackage), so deleting the asset would break that
+   copy, and both view models would then load a path that does not exist. An empty config
+   loads cleanly and carries none of their addresses - not in the APK, not on the handset.
+
+   AgentPro's own account settings come from assistant_third_party_default_values, which is
+   the file the reachable login screen actually loads.
+-->
+<config xmlns="http://www.linphone.org/xsds/lpconfig.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.linphone.org/xsds/lpconfig.xsd lpconfig.xsd">
+</config>
