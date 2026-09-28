@@ -176,12 +176,17 @@
             android:launchMode="singleTask"
             android:resizeableActivity="true" />
 
+        <!-- AgentPro: singleInstance gives the call screen a task of its own, i.e. its own card in
+             Recents. autoRemoveFromRecents drops that card when the screen finishes: left in,
+             it outlived the call showing "call ended", and tapping it only relaunched an empty
+             call screen that closed at once. MainActivity's call banner is the way back. -->
         <activity
             android:name=".ui.call.CallActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.LinphoneInCall"
             android:launchMode="singleInstance"
+            android:autoRemoveFromRecents="true"
             android:turnScreenOn="true"
             android:showWhenLocked="true"
             android:resizeableActivity="true"
