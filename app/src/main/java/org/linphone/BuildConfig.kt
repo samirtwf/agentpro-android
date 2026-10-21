@@ -11,10 +11,10 @@ object BuildConfig {
     val BUILD_TYPE = "debug"
 
     @JvmField
-    val VERSION_CODE = 100001
+    val VERSION_CODE = 100002
 
     @JvmField
-    val VERSION_NAME = "1.0.0"
+    val VERSION_NAME = "1.0.1"
 
     @JvmField
     val CRASHLYTICS_ENABLED = false

@@ -80,10 +80,15 @@
         tools:replace="android:supportsRtl"
         tools:targetApi="35">
 
-        <!-- Required for chat message & call notifications to be displayed in Android auto -->
-        <meta-data
+        <!-- AgentPro: no Android Auto. Upstream declares it below so chat & call notifications show
+             on a car's screen, and that entry alone makes Google Play review the app as a car app
+             too. That review turned 1.0.0 down for "2 unique login credentials": a sign-in app has
+             to give the reviewers two separate accounts, i.e. two extensions on a real PBX.
+             To bring it back: restore the entry, add Android Auto under Form factors in Play
+             Console, and give two test accounts in App access. -->
+        <!--<meta-data
             android:name="com.google.android.gms.car.application"
-            android:resource="@xml/automotive_app_desc"/>
+            android:resource="@xml/automotive_app_desc"/>-->
 
         <meta-data
             android:name="android.content.APP_RESTRICTIONS"
