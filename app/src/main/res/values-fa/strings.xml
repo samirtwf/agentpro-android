@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d دقیقه</item>
         <item quantity="other">%1$d دقیقه</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">به این PBX اعتماد می‌کنید؟</string>
+    <string name="ap_cert_new_message">PBX در %1$s از گواهی امنیتی خودش استفاده می‌کند (در UCM عادی است).\n\nفقط اگر این PBX شرکت شماست، «اعتماد» را بزنید. پس از آن برنامه برای آن همین گواهی — و فقط همین — را می‌پذیرد.\n\nاثر انگشت SHA-256:\n%2$s</string>
+    <string name="ap_cert_changed_title">گواهی PBX تغییر کرده است</string>
+    <string name="ap_cert_changed_message">گواهی امنیتی %1$s همان گواهی‌ای نیست که قبلاً به آن اعتماد کردید. این پس از بازنشانی PBX یا تعویض گواهی عادی است، اما ممکن است به این معنی هم باشد که کسی ارتباط را شنود می‌کند.\n\nفقط اگر مطمئن هستید به گواهی جدید اعتماد کنید.\n\nاثر انگشت SHA-256 جدید:\n%2$s</string>
+    <string name="ap_cert_trust">اعتماد</string>
+    <string name="ap_cert_not_trusted">گواهی PBX مورد اعتماد نیست</string>
 </resources>

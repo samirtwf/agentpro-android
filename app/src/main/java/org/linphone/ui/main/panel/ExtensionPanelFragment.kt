@@ -11,10 +11,15 @@ import android.widget.Toast
 import androidx.annotation.UiThread
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.R
+import org.linphone.ui.main.cdr.PbxCertTrust
 import org.linphone.ui.main.cdr.UcmApiClient
 import org.linphone.databinding.ExtensionPanelFragmentBinding
 import org.linphone.databinding.MainActivityTopBarBinding
@@ -131,20 +136,28 @@ class ExtensionPanelFragment : AbstractMainFragment() {
      * leaves the cached list untouched on any failure.
      */
     private fun fetchAllowlist() {
+        if (!isAdded || view == null) return
         val ctx = requireContext()
         val ext = myExt
         if (!PbxPrefs.isConfigured(ctx) || ext.isBlank()) return
-        Thread {
-            val host = PbxPrefs.load(ctx).host
-            val cookie = UcmApiClient.login(host, PbxPrefs.apiPort(ctx), PbxPrefs.apiUser(ctx), PbxPrefs.apiPass(ctx))
-                ?: return@Thread
-            val list = UcmApiClient.getMonitorAllowlist(host, PbxPrefs.apiPort(ctx), cookie, ext) ?: return@Thread
-            PbxPrefs.setAllowlist(ctx, list)
-            activity?.runOnUiThread {
-                allowlistSynced = true
-                if (isAdded) rebuildGrid(AmiClient.states.value ?: emptyMap())
+        if (PbxPrefs.apiUser(ctx).isBlank()) return // the allow-list comes from the HTTPS API
+        val host = PbxPrefs.load(ctx).host
+        val port = PbxPrefs.apiPort(ctx)
+        viewLifecycleOwner.lifecycleScope.launch {
+            // The UCM's certificate must be trusted first (the user is asked the first time).
+            if (!PbxCertTrust.ensureTrusted(this@ExtensionPanelFragment, host, port)) {
+                binding.panelStatus.text = getString(R.string.ap_cert_not_trusted)
+                return@launch
             }
-        }.start()
+            val list = withContext(Dispatchers.IO) {
+                val cookie = UcmApiClient.login(host, port, PbxPrefs.apiUser(ctx), PbxPrefs.apiPass(ctx))
+                    ?: return@withContext null
+                UcmApiClient.getMonitorAllowlist(host, port, cookie, ext)
+            } ?: return@launch
+            PbxPrefs.setAllowlist(ctx, list)
+            allowlistSynced = true
+            rebuildGrid(AmiClient.states.value ?: emptyMap())
+        }
     }
 
     private fun rebuildGrid(states: Map<String, ExtState>) {

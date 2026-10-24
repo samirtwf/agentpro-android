@@ -1316,4 +1316,12 @@
     <plurals name="ap_duration_minutes">
         <item quantity="other">%1$d 分钟</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">信任此 PBX？</string>
+    <string name="ap_cert_new_message">位于 %1$s 的 PBX 使用其自有的安全证书（UCM 通常如此）。\n\n仅当这是贵公司的 PBX 时才点按“信任”。之后应用将只接受此证书来连接该 PBX。\n\nSHA-256 指纹：\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX 证书已更改</string>
+    <string name="ap_cert_changed_message">%1$s 的安全证书与您之前信任的证书不同。PBX 重置或更换证书后出现这种情况是正常的，但也可能意味着有人正在拦截连接。\n\n请仅在确定无误时信任新证书。\n\n新的 SHA-256 指纹：\n%2$s</string>
+    <string name="ap_cert_trust">信任</string>
+    <string name="ap_cert_not_trusted">PBX 证书不受信任</string>
 </resources>

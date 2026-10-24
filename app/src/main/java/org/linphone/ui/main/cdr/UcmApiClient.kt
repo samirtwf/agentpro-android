@@ -2,13 +2,7 @@ package org.linphone.ui.main.cdr
 
 import java.net.URL
 import java.security.MessageDigest
-import java.security.SecureRandom
-import java.security.cert.X509Certificate
-import javax.net.ssl.HostnameVerifier
 import javax.net.ssl.HttpsURLConnection
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
 import org.json.JSONObject
 import org.linphone.core.tools.Log
 
@@ -30,23 +24,12 @@ data class CdrRecord(
  * Auth is challenge/response: POST {action:challenge} -> challenge string; token = MD5(challenge +
  * password); POST {action:login, token} -> session cookie. Then {action:cdrapi} returns the call
  * records. (Recordings are played in the UCM web GUI via the in-app PBX page, not downloaded here.)
- * The UCM uses a self-signed certificate, so these requests trust all certificates (acceptable for
- * the user's own LAN PBX). All methods block and must be called off the main thread.
+ * The UCM usually presents a self-signed certificate: requests accept a certificate the system
+ * trusts, or else only the one the user approved for that PBX ([PbxCertTrust]) — never just any
+ * certificate. All methods block and must be called off the main thread.
  */
 object UcmApiClient {
     private const val TAG = "[UCM API]"
-
-    private val trustAllContext: SSLContext by lazy {
-        val trustManagers = arrayOf<TrustManager>(object : X509TrustManager {
-            override fun checkClientTrusted(chain: Array<X509Certificate>?, authType: String?) {}
-
-            override fun checkServerTrusted(chain: Array<X509Certificate>?, authType: String?) {}
-
-            override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
-        })
-        SSLContext.getInstance("TLS").apply { init(null, trustManagers, SecureRandom()) }
-    }
-    private val allowAllHosts = HostnameVerifier { _, _ -> true }
 
     /** Returns a session cookie, or null on failure. */
     fun login(host: String, port: Int, user: String, pass: String): String? {
@@ -264,8 +247,7 @@ object UcmApiClient {
 
     private fun open(url: URL): HttpsURLConnection {
         val conn = url.openConnection() as HttpsURLConnection
-        conn.sslSocketFactory = trustAllContext.socketFactory
-        conn.hostnameVerifier = allowAllHosts
+        PbxCertTrust.secure(conn, url.host, if (url.port > 0) url.port else url.defaultPort)
         return conn
     }
 

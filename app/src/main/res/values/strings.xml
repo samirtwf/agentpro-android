@@ -1489,4 +1489,12 @@
         <item quantity="one">%1$d minute</item>
         <item quantity="other">%1$d minutes</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Trust this PBX?</string>
+    <string name="ap_cert_new_message">The PBX at %1$s uses its own security certificate (normal for a UCM).\n\nTap Trust only if this is your company’s PBX. The app will then accept this certificate — and only this one — for it.\n\nSHA-256 fingerprint:\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX certificate changed</string>
+    <string name="ap_cert_changed_message">The security certificate of %1$s is not the one you trusted before. This is normal after a PBX reset or a certificate change, but it can also mean someone is intercepting the connection.\n\nTrust the new certificate only if you are sure.\n\nNew SHA-256 fingerprint:\n%2$s</string>
+    <string name="ap_cert_trust">Trust</string>
+    <string name="ap_cert_not_trusted">PBX certificate not trusted</string>
 </resources>

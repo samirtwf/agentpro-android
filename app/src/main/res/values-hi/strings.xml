@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d मिनट</item>
         <item quantity="other">%1$d मिनट</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">क्या इस PBX पर भरोसा करें?</string>
+    <string name="ap_cert_new_message">%1$s पर मौजूद PBX अपना खुद का सुरक्षा प्रमाणपत्र इस्तेमाल करता है (UCM के लिए यह सामान्य है)।\n\n“भरोसा करें” तभी दबाएँ जब यह आपकी कंपनी का PBX हो। इसके बाद ऐप इसके लिए यही प्रमाणपत्र — और केवल यही — स्वीकार करेगा।\n\nSHA-256 फ़िंगरप्रिंट:\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX का प्रमाणपत्र बदल गया है</string>
+    <string name="ap_cert_changed_message">%1$s का सुरक्षा प्रमाणपत्र वह नहीं है जिस पर आपने पहले भरोसा किया था। PBX रीसेट या प्रमाणपत्र बदलने के बाद ऐसा होना सामान्य है, लेकिन इसका मतलब यह भी हो सकता है कि कोई कनेक्शन को बीच में रोक रहा है।\n\nनए प्रमाणपत्र पर तभी भरोसा करें जब आप पूरी तरह आश्वस्त हों।\n\nनया SHA-256 फ़िंगरप्रिंट:\n%2$s</string>
+    <string name="ap_cert_trust">भरोसा करें</string>
+    <string name="ap_cert_not_trusted">PBX प्रमाणपत्र पर भरोसा नहीं किया गया</string>
 </resources>

@@ -1329,4 +1329,12 @@
         <item quantity="one">dakika %1$d</item>
         <item quantity="other">dakika %1$d</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Uiamini PBX hii?</string>
+    <string name="ap_cert_new_message">PBX iliyoko %1$s inatumia cheti chake cha usalama (ni kawaida kwa UCM).\n\nGusa Amini tu ikiwa hii ni PBX ya kampuni yako. Kisha programu itakubali cheti hiki — na hiki tu — kwa PBX hiyo.\n\nAlama ya kidole ya SHA-256:\n%2$s</string>
+    <string name="ap_cert_changed_title">Cheti cha PBX kimebadilika</string>
+    <string name="ap_cert_changed_message">Cheti cha usalama cha %1$s si kile ulichokiamini awali. Hii ni kawaida baada ya kuweka upya PBX au kubadilisha cheti, lakini inaweza pia kumaanisha kuna mtu anayeingilia muunganisho.\n\nAmini cheti kipya tu ikiwa una uhakika.\n\nAlama mpya ya kidole ya SHA-256:\n%2$s</string>
+    <string name="ap_cert_trust">Amini</string>
+    <string name="ap_cert_not_trusted">Cheti cha PBX hakiaminiki</string>
 </resources>

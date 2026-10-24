@@ -1381,4 +1381,12 @@
         <item quantity="many">%1$d دقيقة</item>
         <item quantity="other">%1$d دقيقة</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">هل تثق في هذا السنترال؟</string>
+    <string name="ap_cert_new_message">السنترال على %1$s يستخدم شهادة أمان خاصة به (وهذا طبيعي في أجهزة UCM).\n\nاضغط «ثقة» فقط إذا كان هذا سنترال شركتك، وبعدها سيقبل التطبيق هذه الشهادة — وهذه فقط — لهذا السنترال.\n\nبصمة SHA-256:\n%2$s</string>
+    <string name="ap_cert_changed_title">شهادة السنترال تغيّرت</string>
+    <string name="ap_cert_changed_message">شهادة الأمان الخاصة بـ %1$s ليست الشهادة التي وثقت بها من قبل. هذا طبيعي بعد إعادة ضبط السنترال أو تغيير الشهادة، لكنه قد يعني أيضًا أن أحدًا يعترض الاتصال.\n\nلا تثق في الشهادة الجديدة إلا إذا كنت متأكدًا.\n\nبصمة SHA-256 الجديدة:\n%2$s</string>
+    <string name="ap_cert_trust">ثقة</string>
+    <string name="ap_cert_not_trusted">شهادة السنترال غير موثوقة</string>
 </resources>

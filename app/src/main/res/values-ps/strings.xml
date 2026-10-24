@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d دقیقه</item>
         <item quantity="other">%1$d دقیقې</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">په دې PBX باور کوئ؟</string>
+    <string name="ap_cert_new_message">په %1$s کې PBX خپل امنیتي سند کاروي (د UCM لپاره دا عادي ده).\n\nیوازې هغه وخت «باور» کېکاږئ چې دا ستاسو د شرکت PBX وي. بیا به اپ د دې لپاره همدا سند — او یوازې همدا — ومني.\n\nد SHA-256 ګوتې نښه:\n%2$s</string>
+    <string name="ap_cert_changed_title">د PBX سند بدل شوی</string>
+    <string name="ap_cert_changed_message">د %1$s امنیتي سند هغه نه دی چې تاسو مخکې پرې باور کړی و. دا د PBX له ریسیټ یا د سند له بدلولو وروسته عادي ده، خو دا هم کېدای شي چې څوک اړیکه منځ کې نیسي.\n\nیوازې هغه وخت په نوي سند باور وکړئ چې ډاډه یاست.\n\nد SHA-256 نوې ګوتې نښه:\n%2$s</string>
+    <string name="ap_cert_trust">باور</string>
+    <string name="ap_cert_not_trusted">د PBX سند د باور وړ نه دی</string>
 </resources>

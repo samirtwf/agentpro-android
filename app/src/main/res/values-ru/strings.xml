@@ -1355,4 +1355,12 @@
         <item quantity="many">%1$d минут</item>
         <item quantity="other">%1$d минуты</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Доверять этой АТС?</string>
+    <string name="ap_cert_new_message">АТС по адресу %1$s использует собственный сертификат безопасности (для UCM это нормально).\n\nНажмите «Доверять», только если это АТС вашей компании. После этого приложение будет принимать для неё этот сертификат — и только его.\n\nОтпечаток SHA-256:\n%2$s</string>
+    <string name="ap_cert_changed_title">Сертификат АТС изменился</string>
+    <string name="ap_cert_changed_message">Сертификат безопасности %1$s отличается от того, которому вы доверяли раньше. Это нормально после сброса АТС или замены сертификата, но может означать и то, что кто-то перехватывает соединение.\n\nДоверяйте новому сертификату, только если уверены.\n\nНовый отпечаток SHA-256:\n%2$s</string>
+    <string name="ap_cert_trust">Доверять</string>
+    <string name="ap_cert_not_trusted">Сертификат АТС не является доверенным</string>
 </resources>

@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d Minute</item>
         <item quantity="other">%1$d Minuten</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Dieser PBX vertrauen?</string>
+    <string name="ap_cert_new_message">Die PBX unter %1$s verwendet ein eigenes Sicherheitszertifikat (bei einer UCM normal).\n\nTippen Sie nur dann auf „Vertrauen“, wenn dies die PBX Ihres Unternehmens ist. Die App akzeptiert dann für sie dieses Zertifikat — und nur dieses.\n\nSHA-256-Fingerabdruck:\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX-Zertifikat geändert</string>
+    <string name="ap_cert_changed_message">Das Sicherheitszertifikat von %1$s ist nicht das, dem Sie zuvor vertraut haben. Das ist nach einem Zurücksetzen der PBX oder einem Zertifikatswechsel normal, kann aber auch bedeuten, dass jemand die Verbindung abfängt.\n\nVertrauen Sie dem neuen Zertifikat nur, wenn Sie sicher sind.\n\nNeuer SHA-256-Fingerabdruck:\n%2$s</string>
+    <string name="ap_cert_trust">Vertrauen</string>
+    <string name="ap_cert_not_trusted">PBX-Zertifikat nicht vertrauenswürdig</string>
 </resources>

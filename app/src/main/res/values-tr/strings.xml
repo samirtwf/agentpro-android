@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d dakika</item>
         <item quantity="other">%1$d dakika</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Bu PBX’e güvenilsin mi?</string>
+    <string name="ap_cert_new_message">%1$s adresindeki PBX kendi güvenlik sertifikasını kullanıyor (UCM için normaldir).\n\nYalnızca bu, şirketinizin PBX’i ise Güven’e dokunun. Uygulama bundan sonra bu PBX için bu sertifikayı — ve yalnızca bunu — kabul eder.\n\nSHA-256 parmak izi:\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX sertifikası değişti</string>
+    <string name="ap_cert_changed_message">%1$s adresindeki PBX’in güvenlik sertifikası, daha önce güvendiğiniz sertifika değil. Bu, PBX sıfırlandıktan veya sertifika değiştirildikten sonra normaldir; ancak birinin bağlantıyı dinlediği anlamına da gelebilir.\n\nYeni sertifikaya yalnızca eminseniz güvenin.\n\nYeni SHA-256 parmak izi:\n%2$s</string>
+    <string name="ap_cert_trust">Güven</string>
+    <string name="ap_cert_not_trusted">PBX sertifikasına güvenilmiyor</string>
 </resources>

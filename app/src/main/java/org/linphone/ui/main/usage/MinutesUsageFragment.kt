@@ -25,6 +25,7 @@ import org.linphone.core.tools.Log
 import org.linphone.databinding.MainActivityTopBarBinding
 import org.linphone.databinding.MinutesUsageFragmentBinding
 import org.linphone.ui.main.campaign.XlsxUtils
+import org.linphone.ui.main.cdr.PbxCertTrust
 import org.linphone.ui.main.cdr.UcmApiClient
 import org.linphone.ui.main.fragment.AbstractMainFragment
 import org.linphone.ui.main.panel.PbxPrefs
@@ -239,6 +240,10 @@ class MinutesUsageFragment : AbstractMainFragment() {
         binding.usageResult.text = ""
         binding.usageStatus.text = getString(R.string.ap_calculating)
         viewLifecycleOwner.lifecycleScope.launch {
+            if (!PbxCertTrust.ensureTrusted(this@MinutesUsageFragment, host, PbxPrefs.apiPort(ctx))) {
+                if (isAdded) binding.usageStatus.text = getString(R.string.ap_cert_not_trusted)
+                return@launch
+            }
             val records = withContext(Dispatchers.IO) {
                 val cookie = UcmApiClient.login(host, PbxPrefs.apiPort(ctx), PbxPrefs.apiUser(ctx), PbxPrefs.apiPass(ctx))
                     ?: return@withContext null

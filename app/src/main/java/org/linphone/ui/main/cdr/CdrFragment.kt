@@ -142,6 +142,10 @@ class CdrFragment : AbstractMainFragment() {
         val from = apiFmt.format(fromCal.time)
         val to = apiFmt.format(toCal.time)
         viewLifecycleOwner.lifecycleScope.launch {
+            if (!PbxCertTrust.ensureTrusted(this@CdrFragment, host, PbxPrefs.apiPort(ctx))) {
+                binding.cdrStatus.text = getString(R.string.ap_cert_not_trusted)
+                return@launch
+            }
             val result = withContext(Dispatchers.IO) {
                 val cookie = UcmApiClient.login(host, PbxPrefs.apiPort(ctx), PbxPrefs.apiUser(ctx), PbxPrefs.apiPass(ctx))
                     ?: return@withContext null

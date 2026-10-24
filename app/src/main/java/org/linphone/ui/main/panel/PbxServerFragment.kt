@@ -25,6 +25,7 @@ import org.linphone.LinphoneApplication.Companion.corePreferences
 import org.linphone.core.RegistrationState
 import org.linphone.R
 import org.linphone.ui.assistant.AssistantActivity
+import org.linphone.ui.main.cdr.PbxCertTrust
 import org.linphone.ui.main.cdr.UcmApiClient
 import org.linphone.ui.main.settings.fragment.AccountProfileFragmentDirections
 import org.linphone.utils.enablePasswordToggle
@@ -183,6 +184,12 @@ class PbxServerFragment : Fragment() {
                 if (hostStr.isEmpty()) {
                     setStatus(statusApi, getString(R.string.ap_no_host), false)
                     setStatus(statusWeb, getString(R.string.ap_no_host), false)
+                    return@launch
+                }
+                // The UCM's certificate must be trusted before the API / web GUI are used.
+                if (!PbxCertTrust.ensureTrusted(this@PbxServerFragment, hostStr, apiPortNum)) {
+                    setStatus(statusApi, getString(R.string.ap_cert_not_trusted), false)
+                    setStatus(statusWeb, getString(R.string.ap_cert_not_trusted), false)
                     return@launch
                 }
                 val apiOk = withContext(Dispatchers.IO) {

@@ -1342,4 +1342,12 @@
         <item quantity="many">%1$d de minutos</item>
         <item quantity="other">%1$d minutos</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Confiar neste PBX?</string>
+    <string name="ap_cert_new_message">O PBX em %1$s usa seu próprio certificado de segurança (normal em um UCM).\n\nToque em Confiar somente se este for o PBX da sua empresa. O app passará a aceitar este certificado — e apenas este — para ele.\n\nImpressão digital SHA-256:\n%2$s</string>
+    <string name="ap_cert_changed_title">O certificado do PBX mudou</string>
+    <string name="ap_cert_changed_message">O certificado de segurança de %1$s não é o que você aprovou antes. Isso é normal após redefinir o PBX ou trocar o certificado, mas também pode significar que alguém está interceptando a conexão.\n\nConfie no novo certificado somente se tiver certeza.\n\nNova impressão digital SHA-256:\n%2$s</string>
+    <string name="ap_cert_trust">Confiar</string>
+    <string name="ap_cert_not_trusted">Certificado do PBX não confiável</string>
 </resources>

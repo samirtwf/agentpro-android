@@ -1316,4 +1316,12 @@
     <plurals name="ap_duration_minutes">
         <item quantity="other">%1$d minit</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Percayai PBX ini?</string>
+    <string name="ap_cert_new_message">PBX di %1$s menggunakan sijil keselamatannya sendiri (biasa bagi UCM).\n\nKetik Percayai hanya jika ini PBX syarikat anda. Aplikasi kemudian akan menerima sijil ini — dan hanya sijil ini — untuknya.\n\nCap jari SHA-256:\n%2$s</string>
+    <string name="ap_cert_changed_title">Sijil PBX telah berubah</string>
+    <string name="ap_cert_changed_message">Sijil keselamatan %1$s bukan sijil yang anda percayai sebelum ini. Ini biasa selepas PBX ditetapkan semula atau sijil ditukar, tetapi ia juga boleh bermakna seseorang sedang memintas sambungan.\n\nPercayai sijil baharu hanya jika anda pasti.\n\nCap jari SHA-256 baharu:\n%2$s</string>
+    <string name="ap_cert_trust">Percayai</string>
+    <string name="ap_cert_not_trusted">Sijil PBX tidak dipercayai</string>
 </resources>

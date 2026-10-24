@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d মিনিট</item>
         <item quantity="other">%1$d মিনিট</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">এই PBX-কে বিশ্বাস করবেন?</string>
+    <string name="ap_cert_new_message">%1$s-এ থাকা PBX নিজস্ব নিরাপত্তা সার্টিফিকেট ব্যবহার করে (UCM-এর জন্য এটি স্বাভাবিক)।\n\nএটি আপনার কোম্পানির PBX হলেই কেবল “বিশ্বাস করুন” চাপুন। এরপর অ্যাপটি এর জন্য এই সার্টিফিকেট — এবং কেবল এটিই — গ্রহণ করবে।\n\nSHA-256 ফিঙ্গারপ্রিন্ট:\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX-এর সার্টিফিকেট বদলে গেছে</string>
+    <string name="ap_cert_changed_message">%1$s-এর নিরাপত্তা সার্টিফিকেট সেটি নয় যেটিকে আপনি আগে বিশ্বাস করেছিলেন। PBX রিসেট বা সার্টিফিকেট পরিবর্তনের পরে এটি স্বাভাবিক, তবে এর মানে এটাও হতে পারে যে কেউ সংযোগে আড়ি পাতছে।\n\nনিশ্চিত হলে তবেই নতুন সার্টিফিকেটকে বিশ্বাস করুন।\n\nনতুন SHA-256 ফিঙ্গারপ্রিন্ট:\n%2$s</string>
+    <string name="ap_cert_trust">বিশ্বাস করুন</string>
+    <string name="ap_cert_not_trusted">PBX সার্টিফিকেট বিশ্বস্ত নয়</string>
 </resources>

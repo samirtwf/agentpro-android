@@ -1329,4 +1329,12 @@
         <item quantity="one">%1$d منٹ</item>
         <item quantity="other">%1$d منٹ</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">کیا اس PBX پر بھروسہ کریں؟</string>
+    <string name="ap_cert_new_message">%1$s پر موجود PBX اپنا سیکیورٹی سرٹیفکیٹ استعمال کرتا ہے (UCM میں یہ عام بات ہے)۔\n\n«بھروسہ کریں» صرف اسی صورت میں دبائیں جب یہ آپ کی کمپنی کا PBX ہو۔ اس کے بعد ایپ اس کے لیے یہی سرٹیفکیٹ — اور صرف یہی — قبول کرے گی۔\n\nSHA-256 فنگر پرنٹ:\n%2$s</string>
+    <string name="ap_cert_changed_title">PBX کا سرٹیفکیٹ تبدیل ہو گیا ہے</string>
+    <string name="ap_cert_changed_message">%1$s کا سیکیورٹی سرٹیفکیٹ وہ نہیں جس پر آپ نے پہلے بھروسہ کیا تھا۔ PBX ری سیٹ کرنے یا سرٹیفکیٹ بدلنے کے بعد ایسا ہونا عام ہے، لیکن اس کا مطلب یہ بھی ہو سکتا ہے کہ کوئی کنکشن میں مداخلت کر رہا ہے۔\n\nنئے سرٹیفکیٹ پر صرف اسی وقت بھروسہ کریں جب آپ کو یقین ہو۔\n\nنیا SHA-256 فنگر پرنٹ:\n%2$s</string>
+    <string name="ap_cert_trust">بھروسہ کریں</string>
+    <string name="ap_cert_not_trusted">PBX سرٹیفکیٹ قابلِ بھروسہ نہیں</string>
 </resources>

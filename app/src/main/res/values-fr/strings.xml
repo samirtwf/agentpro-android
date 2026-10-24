@@ -1333,4 +1333,12 @@
         <item quantity="many">%1$d de minutes</item>
         <item quantity="other">%1$d minutes</item>
     </plurals>
+
+    <!-- PBX certificate trust (PbxCertTrust) -->
+    <string name="ap_cert_new_title">Faire confiance à ce PBX ?</string>
+    <string name="ap_cert_new_message">Le PBX à l’adresse %1$s utilise son propre certificat de sécurité (normal pour un UCM).\n\nAppuyez sur « Faire confiance » uniquement s’il s’agit du PBX de votre entreprise. L’application acceptera alors ce certificat — et uniquement celui-ci — pour ce PBX.\n\nEmpreinte SHA-256 :\n%2$s</string>
+    <string name="ap_cert_changed_title">Le certificat du PBX a changé</string>
+    <string name="ap_cert_changed_message">Le certificat de sécurité de %1$s n’est pas celui que vous aviez approuvé. C’est normal après une réinitialisation du PBX ou un changement de certificat, mais cela peut aussi signifier que quelqu’un intercepte la connexion.\n\nNe faites confiance au nouveau certificat que si vous en êtes sûr.\n\nNouvelle empreinte SHA-256 :\n%2$s</string>
+    <string name="ap_cert_trust">Faire confiance</string>
+    <string name="ap_cert_not_trusted">Certificat du PBX non approuvé</string>
 </resources>

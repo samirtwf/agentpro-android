@@ -25,10 +25,12 @@ import android.widget.Toast
 import androidx.annotation.UiThread
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import java.io.File
 import java.io.IOException
 import java.util.UUID
+import kotlinx.coroutines.launch
 import org.linphone.R
 import org.linphone.core.tools.Log
 import org.linphone.ui.main.panel.PbxPrefs
@@ -36,14 +38,16 @@ import org.linphone.utils.AudioConverter
 
 /**
  * Opens the Grandstream UCM web GUI (its own CDR page, where recordings can be played) inside the
- * app via a WebView, auto-filling the web login. The UCM uses a self-signed cert, so SSL errors
- * are accepted for this host. Auto-login is best-effort JS injection; if it doesn't fill, the user
- * can log in manually once (the WebView keeps the session).
+ * app via a WebView, auto-filling the web login. The UCM usually presents a self-signed cert: the
+ * page is loaded only once that certificate is trusted ([PbxCertTrust] asks the user the first
+ * time), and an SSL error is accepted only for that exact approved certificate on this host.
+ * Auto-login is best-effort JS injection; if it doesn't fill, the user can log in manually once
+ * (the WebView keeps the session).
  *
  * A WebView ignores file downloads by default, so recording-download links did nothing. We add a
- * DownloadListener that fetches the file with the WebView's session cookie over the same trust-all
- * TLS (self-signed cert), saves it under cacheDir/recordings, then opens a share sheet (which also
- * lets the user save it to Files/Drive). SPA "blob:" downloads are handled via a small JS bridge.
+ * DownloadListener that fetches the file from inside the page (its own session), saves it under
+ * cacheDir/recordings, then opens a share sheet (which also lets the user save it to Files/Drive).
+ * SPA "blob:" downloads are handled via a small JS bridge.
  */
 @UiThread
 class PbxWebFragment : Fragment() {
@@ -53,6 +57,12 @@ class PbxWebFragment : Fragment() {
 
     private lateinit var web: WebView
     private lateinit var appCtx: Context
+    private lateinit var status: TextView
+
+    // The PBX page to open once its certificate is trusted (null = no PBX host configured).
+    private var pageUrl: String? = null
+    private var pbxHost = ""
+    private var pbxPort = 0
 
     // Guards the JS download bridge: only our injected blob-fetch script is given this random token,
     // so a stray or hostile page script can't drive the interface with arbitrary bytes.
@@ -67,12 +77,14 @@ class PbxWebFragment : Fragment() {
         val v = inflater.inflate(R.layout.pbx_web_fragment, container, false)
         web = v.findViewById(R.id.pbx_web)
         appCtx = requireContext().applicationContext
-        val status = v.findViewById<TextView>(R.id.pbx_web_status)
+        status = v.findViewById(R.id.pbx_web_status)
 
         v.findViewById<ImageView>(R.id.pbx_web_back).setOnClickListener {
             if (web.canGoBack()) web.goBack() else findNavController().popBackStack()
         }
-        v.findViewById<ImageView>(R.id.pbx_web_reload).setOnClickListener { web.reload() }
+        v.findViewById<ImageView>(R.id.pbx_web_reload).setOnClickListener {
+            if (web.url == null) loadPbxPage() else web.reload()
+        }
 
         val ctx = requireContext()
         val host = PbxPrefs.load(ctx).host
@@ -103,8 +115,12 @@ class PbxWebFragment : Fragment() {
         val autoLogin = user.isNotBlank() && pass.isNotBlank()
         web.webViewClient = object : WebViewClient() {
             override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
-                // The UCM presents a self-signed certificate.
-                handler?.proceed()
+                if (PbxCertTrust.isApprovedPbxCertificate(appCtx, host, port, error)) {
+                    handler?.proceed() // the PBX's own certificate, approved by the user
+                } else {
+                    handler?.cancel()
+                    if (isAdded) status.text = getString(R.string.ap_cert_not_trusted)
+                }
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
@@ -113,18 +129,37 @@ class PbxWebFragment : Fragment() {
             }
         }
 
+        pbxHost = host
+        pbxPort = port
         when {
             host.isBlank() -> status.text = getString(R.string.ap_pbx_web_set_host_hint)
             !autoLogin -> {
                 status.text = getString(R.string.ap_pbx_web_enter_login_hint)
-                web.loadUrl("https://$host:$port/")
+                pageUrl = "https://$host:$port/"
             }
             else -> {
                 status.text = getString(R.string.ap_loading)
-                web.loadUrl("https://$host:$port/")
+                pageUrl = "https://$host:$port/"
             }
         }
         return v
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadPbxPage()
+    }
+
+    /** Opens the PBX page once its certificate is trusted (the user is asked the first time). */
+    private fun loadPbxPage() {
+        val url = pageUrl ?: return
+        viewLifecycleOwner.lifecycleScope.launch {
+            if (PbxCertTrust.ensureTrusted(this@PbxWebFragment, pbxHost, pbxPort)) {
+                web.loadUrl(url)
+            } else {
+                status.text = getString(R.string.ap_cert_not_trusted)
+            }
+        }
     }
 
     override fun onDestroyView() {
